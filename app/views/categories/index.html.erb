@@ -1,10 +1,16 @@
-<h1>This is the index view for Categories</h1>
-
+<h1>List of Categories</h1>
+	<p>click any category to see lists of articles associated to that link</p>
 <div>
-	<% @categories.each do |category|
-		<h3>
-			<%= link_to category.name, category %></h3>
-			
-		</h3>
-	end %>
+	
+<ol>
+<% @categories.order(name: :asc).each do |category| %>
+	<li><%= link_to category.name, category %></li>
+
+<% end %>
+</ol>
 </div>
+
+
+
+
+

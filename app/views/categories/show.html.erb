@@ -1,0 +1,15 @@
+<div>
+	<p><%= @date %></p>
+<table>
+	<tr>
+		<th>List of Articles in this Category</th>
+	</tr>
+</table>
+
+<ol>
+	<% @category.articles.order(:title).each do |article| %>
+		<li><%= link_to article.title.capitalize, article %></li>	
+	<% end %>
+</ol>
+
+</div>
