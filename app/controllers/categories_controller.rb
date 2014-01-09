@@ -1,15 +1,30 @@
-class CategoryController <ApplicationController
+class CategoriesController <ApplicationController
 	def index
+
 		@categories = Category.all.order(:name)
 	end
 
-   	def show
-   	end
+  def show
+ 		@category = Category.find(params[:id])
+    @date = (params[:date])     
+  end
 
-  	def new
-  	end
+  def new
+    @category = Category.new
+  end
 
-  	def create
-  	end
+  def create
+    @category = Category.new(category_params)
+      if @category.save
+        redirect_to @category
+      else
+        render "new"
+      end
+  end
 
 end
+
+private
+  def category_params 
+    params.require(:category).permit(:name)
+  end
