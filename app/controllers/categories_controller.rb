@@ -5,8 +5,7 @@ class CategoriesController <ApplicationController
 	end
 
   def show
- 		@category = Category.find(params[:id])
-    @date = (params[:date])     
+ 		@category = Category.find(params[:id])    
   end
 
   def new
@@ -14,7 +13,8 @@ class CategoriesController <ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.new
+    @category.name = params[:category][:name].titleize
       if @category.save
         redirect_to @category
       else
@@ -22,6 +22,11 @@ class CategoriesController <ApplicationController
       end
   end
 
+end
+
+def delete
+  Category.find(params[:id]).destroy 
+  redirect_to :action => 'index'
 end
 
 private
