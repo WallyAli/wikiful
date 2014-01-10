@@ -1,6 +1,11 @@
 <h1>create new category</h1>
 
 <% if @category.errors.any? %>
-
+	<% @category.errors.full_messages.each do |message| %>
+		<ul>
+			<li><%= message %></li>	
+		</ul>
+	<% end %>	
 <% end %>
+
 <%= render :partial => 'form' %>
