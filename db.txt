@@ -1,0 +1,10 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2014-01-10T23:08:48-06:00
+
+====== db ======
+Created Friday 10 January 2014
+
+wikiful project: UNIT 3, Lesson 3. 
+--when added bootstrap rails gems to the Gemfile, and ran (bundle install), got the following recommendation: 
+Important: You may need to add a javascript runtime to your Gemfile in order for bootstrap's LESS files to compile to CSS. 
