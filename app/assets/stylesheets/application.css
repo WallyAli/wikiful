@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+.content{
+	text-indent:50px;
+	height: 700px !important;
+	overflow: scroll;
+	display:block;
+	text-align: left;
+}
+
+.title{
+	color: blue;
+	font-family: Verdana;
+	font-size: 20px;
+}

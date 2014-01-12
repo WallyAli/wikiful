@@ -1,0 +1,30 @@
+<%= form_for @article do |article| %>
+
+<div class="well span6">
+  <div>
+    <%= article.label :title %>
+    <input type="text" class="span5" placeholder="Type title here..."/>
+  </div>
+
+  <div>
+    <%= article.label :Content %>
+    <textarea class="form-control" rows="20"></textarea>
+  </div>
+
+  <div class="category-control">
+    <%= article.label 'File under at least one category' %>
+    <% Category.all.order(name: :asc).each do |category| %>
+      <div>
+        <%= check_box_tag "article[category_ids][]", category.id %>
+        <%= category.name %>
+      </div>
+    <% end %>
+  </div>
+
+ <div class="form-actions">
+    <button class="btn btn-primary ">Create Article</button>
+    <%= link_to 'Cancel', articles_path %>
+  </div>
+</div>
+
+<% end %> 
