@@ -11,18 +11,26 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 </head>
 <body>
-
-  <div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <%= link_to "Wikiful", root_path, :class => "brand" %>
-        <div style="float: right;">Eventually log in/out and sign up links will go here
+        <div class="sessions-controls">
+          <% if current_user %>
+            <%= link_to "Log Out", logout_path, :class => 'btn btn-primary btn-mini' %>
+              Logged in as <%= current_user.email %>
+            <% else %>
+              <div class="btn-group">
+                <%= link_to "Sign up", signup_path, :class => "btn btn-mini" %>
+                <%= link_to "Log in", login_path, :class => "btn btn-mini" %>
+            </div>
+          <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+</div>
 
-  <div >
+<div >
     <ul class="nav nav-pills">
       <li><%= link_to"Home", root_path %></li>
       <li><%= link_to"About", root_path %></li>
@@ -44,8 +52,6 @@
    <div class="span9"><%= yield %></div>
  </div>
 </div>
-
-
 
 </body>
 </html>
