@@ -1,4 +1,5 @@
 class CategoriesController <ApplicationController
+  before_filter :authorize, only: [:new]
 	def index
 
 		@categories = Category.all.order(:name)

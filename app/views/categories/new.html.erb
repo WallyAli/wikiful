@@ -1,4 +1,12 @@
-<h1>create new category</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div class ="well span4">
+<h3>Create new category</h3>
 
 <% if @category.errors.any? %>
 	<% @category.errors.full_messages.each do |message| %>
@@ -7,5 +15,8 @@
 		</ul>
 	<% end %>	
 <% end %>
-
+</div>
 <%= render :partial => 'form' %>
+
+</body>
+</html>

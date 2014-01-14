@@ -1,11 +1,23 @@
-<%= form_for @category do |f| %>
-	<div class="name">
-		<%= f.label :title %>
-		<%= f.text_field :name %>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div class ="well span4">
+<%= form_for @category do |category| %>
+	<div class="">
+		<%= category.label 'Category Name' %>
+		<%= category.text_field :name %>
 	</div>
 
 	<div class="form-actions">
-    	<%= f.submit nil %>
+    	<button class="btn btn-primary">Submit</button>
     	<%= link_to 'Cancel', categories_path %>
   	</div>
 <% end %>
+</div>
+
+</body>
+</html>
