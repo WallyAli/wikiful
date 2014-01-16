@@ -1,4 +1,22 @@
-<%- model_class = Article -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+
+	<h4>Edit Article</h4>
+	
+
+<form class="form-horizontal" role="form">	
+	<div class="form-group">
+		
+	<%= form_for @article do |article| %>
+		<%= article.label :title %>
+		<%=article.text_field :title %></br>
+
+		<%= article.label :content %>
+		<%=article.text_area(:content, :cols => '40px', :rows => "30") %></br>
+
+		<%= article.submit %>
+
+	<% end %>
 </div>
+</form>
+
+		
+
