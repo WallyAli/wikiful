@@ -35,3 +35,17 @@ resources :articles
 resources :categories
 resources :users
 resources :sessions
+
+------------------TODO-------------------
+1) Heroku is capturing newly created categories
+2) Heroku --unable to login. it keep saying invalid email/passoword even though can sign in via Rails server
+3) Edit view: increase width
+4) when create new article, unable to save
+5) When edit article title, and hit save, getting this error: 
+	Request-URI Too Large
+	WEBrick::HTTPStatus::RequestURITooLarge
+	WEBrick/1.3.1 (Ruby/2.0.0/2013-11-22) at wali:3000 
+6) when edit article content and hit save, nothing changes. it reverts to previous content. 
+
+7) What does heroku's (forman start) do? is it is similar to (Rails server)?
+
