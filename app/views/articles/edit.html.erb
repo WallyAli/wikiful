@@ -2,21 +2,30 @@
 	<h4>Edit Article</h4>
 	
 
-<form class="form-horizontal" role="form">	
-	<div class="form-group">
 		
-	<%= form_for @article do |article| %>
-		<%= article.label :title %>
-		<%=article.text_field :title %></br>
+<%= form_for :article, url: article_path(@article), method: :patch do |article| %>
+	<% if @article.errors.any? %>
+    <div>
+    	<h4><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h4>
+      	<ul>
+      		<% @article.errors.full_messages.each do |msg| %>
+        		<li><%= msg %></li>
+      		<% end %>
+      	</ul>
+    </div>
+  <% end %>
 
-		<%= article.label :content %>
-		<%=article.text_area(:content, :cols => '40px', :rows => "30") %></br>
 
-		<%= article.submit %>
+	<%= article.label :title %>
+	<%=article.text_field :title %></br>
 
-	<% end %>
-</div>
-</form>
+	<%= article.label :content %>
+	<%=article.text_area(:content, :cols => '40px', :rows => "30") %></br>
 
+	<%= article.submit %>
+
+<% end %>
+
+<%= link_to 'Back', articles_path %>
 		
 
