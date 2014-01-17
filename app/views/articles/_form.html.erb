@@ -13,7 +13,7 @@
   <div class="well span6">
     <div>
       <%= article.label :title %>
-      <input type="text" class="span5" placeholder="Type title here..."/>
+        <input type="text" class="span5" placeholder="Type title here..."/>
     </div>
 
     <div>
@@ -24,17 +24,18 @@
     <div class="category-control">
       <%= article.label 'File under at least one category' %>
       <% Category.all.order(name: :asc).each do |category| %>
-      <div>
-        <%= check_box_tag "article[category_ids][]", category.id %>
-        <%= category.name %>
-      </div>
-    <% end %>
+        <div>
+          <%= check_box_tag "article[category_ids][]", category.id %>
+          <%= category.name %>
+        </div>
+      <% end %>
     </div>
 
     <div class="form-actions">
-      <button class="btn btn-primary">Submit</button>
+      <%= article.submit %>
       <%= link_to 'Cancel', articles_path %>
     </div>
   </div>
+
 <% end %> 
 

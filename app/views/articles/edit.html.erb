@@ -22,10 +22,12 @@
 	<%= article.label :content %>
 	<%=article.text_area(:content, :cols => '40px', :rows => "30") %></br>
 
-	<%= article.submit %>
-
+	<div class="form-actions">
+		<%= article.submit %>
+		<%= link_to 'Back', articles_path %>
+	</div>
 <% end %>
 
-<%= link_to 'Back', articles_path %>
+
 		
 
