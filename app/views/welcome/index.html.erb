@@ -1,23 +1,30 @@
 
-<h1>Welcome to Wikiful</h1>
-<h3>Here are some of the most recent articles:</h3>
+<h3>Welcome to Wikiful</h3>
+<h4>Here are some of the most recent articles:</h4>
+<table class="table table-striped">
+<thead>
+	<tr>
+		<td><h5>Publication date & Category</h5></td>
+		<td><h5>Title</h5></td>
+		<td><h5>Content</h5></td>
+	</tr>
+</thead>
+<tbody>
 
-<div>
-<ol>
 <% @recent_articles.each do |article| %>
-	<li>
-		<p>
-			Published on <%= article.created_at.strftime('%B %d, %Y') %> ----
+	<tr>
+		<td>
+			Published on <%= article.created_at.strftime('%B %d, %Y') %>
 			Category: <% article.categories.each do |category| %>
 				<%= category.name %>
 			<% end %>
-		</p>
-		<h5><%= link_to article.title, article %></h5>
+		</td>
+		<td><%= link_to article.title, article %></td>
 		
-		<p><%= truncate(article.content, length: 100) %></p>
-	</li>
+		<td><%= truncate(article.content, length: 100) %></td>
+	</tr>
 
 <% end %>
-</ol>
-</div>
 
+</tbody>
+</table>
