@@ -1,40 +1,33 @@
-<%= form_for :article, url: articles_path do |article| %>
-  <% if @article.errors.any? %>
-    <div>
-      <h4><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h4>
-      <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for (@article) do |article| %>
+<%= render 'shared/errors' %>
 
-  <div class="well span6">
-    <div>
-      <%= article.label :title %>
-        <input type="text" class="span5" placeholder="Type title here..."/>
+  <div class="control-group">
+    <%= article.label :title %>
+    <div class="controls">
+      <%= article.text_field :title %>
     </div>
+  </div>
 
-    <div>
-      <%= article.label :Content %>
-      <textarea class="form-control" rows="20"></textarea>
+  <div class="control-group">
+    <%= article.label :content %>
+    <div class="controls" placeholder="Start typing your article...">
+      <%= article.text_area :content, rows: "20", cols: "100" %>
     </div>
+  </div>
 
-    <div class="category-control">
-      <%= article.label 'File under at least one category' %>
-      <% Category.all.order(name: :asc).each do |category| %>
-        <div>
-          <%= check_box_tag "article[category_ids][]", category.id %>
-          <%= category.name %>
-        </div>
-      <% end %>
+  <div class="category-control">
+    <%= article.label 'File under at least one category' %>
+    <% Category.all.order(name: :asc).each do |category| %>
+     <div>
+        <%= check_box_tag "article[category_ids][]", category.id %>
+        <%= category.name %>
     </div>
+    <% end %>
+  </div>
 
-    <div class="form-actions">
-      <%= article.submit %>
-      <%= link_to 'Cancel', articles_path %>
-    </div>
+  <div class="form-actions">
+    <%= article.submit %>
+    <%= link_to 'Cancel', articles_path %>
   </div>
 
 <% end %> 
